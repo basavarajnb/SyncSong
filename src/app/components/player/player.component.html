@@ -1,0 +1,10 @@
+<div class="my-3 p-4 justify-content-md-center border-line">
+  <div class="p-4">Song starts to play in : {{playerService.localTimeNow}} Seconds</div>
+  <audio class="col-sm-12 py-3" controls #audioElm></audio>
+  <div class="pb-4 text-center">
+    <button class="btn btn-success " (click)="playSong()" [disabled]="!canPlayAudio">Play Song</button>
+    <button class="btn btn-danger" (click)="pauseSong()" [disabled]="!canPlayAudio">Pause Song</button>
+  </div>
+  <div class="">Session Time: {{remoteDateString}}</div>
+  <div class="">Local Time --: {{localDateString}}</div>
+</div>

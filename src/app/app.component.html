@@ -1,0 +1,94 @@
+<div class="container">
+  <div class="my-4 header-bar">
+    <h1 class="float-left">Song Sync</h1> 
+    <button class="btn btn-link float-right" (click)="helpClick()"> {{helpButtonText}} </button>
+  </div>
+  <hr>
+  <div class="row justify-content-md-center">
+    <div class="p-4 border-line" *ngIf="showHelp">
+      <h4>What is this all about??</h4>
+      <p>
+        Sync song - As name suggests, play a song on multiple devices in sync. Web app starts playing song on multiple devices at
+        specified time. Now default song loads. In future, you can upload your own song and if someone else uses your session ID then your song will be loaded on their device and played at the time you have specified.
+      </p>
+      <p>
+        How to use? <br> -> <b>Session: </b> A session is created by default, when you visit this web app. <br> -> <b>Set Time:</b>        Set the time (in seconds) after which song should start. <br> -> <b> Share Session ID:</b> Share session ID with
+        friends near by. They have to enter the session ID in "Use Existing Session" Tab. <br> -> <b>And see the magic happen!</b>
+      </p>
+      <hr>
+      <h4>To Create new session</h4>
+      <p>Click on "Create Session" Tab => Enter the seconds after which song should start. => click "Set Time". </p>
+      <h4>To Use Existing session</h4>
+      <p>Click on "Use Existing Session" Tab => Enter the Session ID shared by your friend. => click "Set Time". </p>
+      <hr>
+
+      <h4>Song will play after the specifed amount of time. Check the count down, to see when song starts.</h4>
+    </div>
+  </div>
+
+
+  <ul class="nav nav-tabs nav-fill mt-4">
+    <li class="nav-item" [class.active]="currentTab == 0">
+      <a class="nav-link " (click)="tabClick(0)">Your Session</a>
+    </li>
+    <li class="nav-item" [class.active]="currentTab == 1">
+      <a class="nav-link" (click)="tabClick(1)">Use Existing Session</a>
+    </li>
+  </ul>
+
+  <div *ngIf="currentTab == 0" class="p-4 border-line">
+    <div class="mb-2">
+      <h4>Current Session : <b>{{sessionService.sessionId}}</b> </h4>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-sm-12 col-lg-12 p-4">
+        <h4 class="mb-4"> Set Time</h4>
+        <div>
+          Enter Time in Seconds : <input class="input-field" type="number" [(ngModel)]="secondsToStart">
+          <button class="btn btn-primary" (click)="setTime()">Set Time</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="currentTab == 1" class="p-4 border-line">
+    <div class="row">
+      <div class="col-sm-12 col-lg-12">
+        <h4 class="mb-4">Use Friend's Session</h4>
+        <div>
+          Enter Session : <input type="text" class="input-field" [(ngModel)]="existingSession">
+          <button class="btn btn-primary" (click)="useExternalSession()">Set Time</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+<app-player></app-player>
+
+
+
+
+
+  <div class="text-center border-line p-4">
+      <h3>FUTURE FEATURES</h3>
+          <hr>
+          <div class="">
+          <h4 class="w-100">Upload a Song</h4>
+          <div>
+            <input type="file" class="input-field" (change)="fileChange($event)" placeholder="Upload file" accept=".mp3">
+            <button class="btn btn-info mx-3" (click)="upload()">upload</button>
+          </div>
+        </div>
+          <hr>
+          <div class="">
+          <h4 class="w-100">Download Song</h4>
+          <button class="btn btn-info" (click)="download()">Download</button>
+        </div>
+  </div>
+
+
+</div>

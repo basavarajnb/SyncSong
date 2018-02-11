@@ -1,0 +1,33 @@
+.input-field {
+    padding: .5rem .75rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    color: #495057;
+    background-color: #fff;
+    background-image: none;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+
+.nav-tabs > li.active > a {
+    background-color: #007bff;
+    color: #fff;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+
+.nav-tabs > li > a {
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-color: #eee #eee #ddd;
+    background-color: #eee;
+}
+.border-line {
+    border: 1px solid #ccc;
+}
+.header-bar {
+    height: 2rem;
+}
